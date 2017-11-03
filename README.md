@@ -1,2 +1,2 @@
 # resltess-api-auth
-Django restless auth api based on https://github.com/toastdriven/restless
+Django restful authorization api based on [restless](https://github.com/toastdriven/restless) framework

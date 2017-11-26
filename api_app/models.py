@@ -40,7 +40,7 @@ class ApiUser(AbstractBaseUser):
     objects = MyUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['type']
+    REQUIRED_FIELDS = 'type'
 
     # Methods for admin site representation, if needed
 

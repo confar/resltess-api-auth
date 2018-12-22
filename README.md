@@ -3,5 +3,7 @@ Django restful authorization api based on [restless](https://github.com/toastdri
 
 python 3, Django 1.11
 
-to run a code
+to run a project
+git clone
+cd restless-api-auth
 python manage.py runserver

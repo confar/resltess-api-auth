@@ -16,7 +16,6 @@ class ApiUserForm(ModelForm):
 
 class ApiUserLoginResource(DjangoResource):
 
-    #POST/account/login/
     def create_detail(self, *args, **kwargs):
         try:
             user = authenticate(self.request, email=self.data.get('email'), password=self.data.get('password'))
@@ -30,13 +29,9 @@ class ApiUserLoginResource(DjangoResource):
 
 
     def is_authenticated(self):
-        # Open everything wide!
-        # DANGEROUS, DO NOT DO IN PRODUCTION.
         return True
-        # Alternatively, if the user is logged into the site...
-        # return self.request.user.is_authenticated()
 
-        #POST/account/logout/
+    
 class ApiUserLogoutResource(DjangoResource):
 
     def create_detail(self, *args, **kwargs):
@@ -49,7 +44,7 @@ class ApiUserLogoutResource(DjangoResource):
         else:
             raise exceptions.Unauthorized(msg='User is not Authorised')
 
-        #POST/account/register/
+            
 class ApiUserRegisterResource(DjangoResource):
 
     def create_detail(self, *args, **kwargs):
@@ -59,13 +54,9 @@ class ApiUserRegisterResource(DjangoResource):
             raise exceptions.BadRequest('Something is wrong.')
 
         user = ApiUser.objects.create_user(
-        email=form.cleaned_data['email'],
-        password=form.cleaned_data['password'],
-        type=form.cleaned_data['type'],
-        )
-        print("User has registered")
-
-
+            email=form.cleaned_data['email'],
+            password=form.cleaned_data['password'],
+            type=form.cleaned_data['type'])
 
 
     def is_authenticated(self):
